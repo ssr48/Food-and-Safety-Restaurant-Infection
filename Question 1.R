@@ -8,76 +8,59 @@
 #                 staying the same distance = 0.33
 #                 going one step backwards = 0.167
 
-# D = Total distance
-# s = next incremental distance
-# T = Total steps
+options(digits = 10)
 
+T <- c(1:64)
 
+v.s <- c(1,0,-1)
+p.s <- c(0.5, (1/3), (1/6))
 
+# for T=1: probability 1 for s=1 and thus s=1
 
-d <- seq(0, 100, 1)
+# the expected value for each step from second step onwards:
+# next incremental distance:
 
+expS.r <- p.s[1] * v.s[1] + p.s[2] * v.s[2] + p.s[3] * v.s[3] 
+# this is the expected INCREMENTAL distance for every  round starting round 2!
 
-for (t in c(1:16)) {
-  if (t = 1){
-    d = t
-  } else (t>1) {
-    d2 = d+1
-    d1 = d+0
-    d0 = d-1
-    D = c(d2, d1, d0)
-    
-  }
-  
-  for (D in d2){
-    
-  }
+expD.rT <- function(t) {
+  D <- 1 + (t-1) * expS.r
+  D
 }
-for (D in d){ # D is total distance
-if (D > 0){
-  Pplusone = 0.5
-  Ppluszero = 0.33
-  Pminusone = 0.1666667
-}  else {
-    Pplusone = 1
-    Ppluszero = 0
-    Pminusone = 0
-} if (D = 0){
-  Splusone = 0
-  Spluszero = 0
-  Sminusone = 0
-} if (D = 1){
-  Splusone = 1
-  Spluszero = 1
-  Sminusone = 1
-} if (D > 1) {
-  Splusone = toneagain + tsameplusone + tminusplusone  #should signify total probability till the nth step
-  Spluszero = tonesame + tsamepluszero + tminuspluszero
-  Sminusone = toneminus + tsameminusone + tminusminusone {
-    toneagain = Splusone*Pplusone #+1+1
-    tonesame = Splusone*Ppluszero # +1 + 0
-    toneminus = Splusone*Pminusone # +1 - 1
-    tsameplusone = Spluszero*Pplusone # +0 + 1
-    tsamepluszero = Spluszero*Ppluszero # +0 + 0
-    tsameminusone = Spluszero*Pminusone # +0 -1
-    tminusplusone = Sminusone*Pplusone # -1 + 1
-    tminuspluszero = Sminusone*Ppluszero # -1 + 0
-    tminusminusone = Sminusone*Pminusone # -1 -1
-  }
-}
-}
- 
 
 # 1. After T=16 steps, what is the expected value of the bee's distance from the starting hexagon?
+expD.rT(16)
+# [1] 6
 
 # 2. After T=16 steps, what is the expected value of the deviation of the bee's distance from the starting hexagon?
+sd.r <- sqrt((p.s[1] * v.s[1]^2 - expS.r^2) + (p.s[2] * v.s[2]^2 - expS.r^2) + (p.s[3] * v.s[3]^2 - expS.r^2))
+
+# Now we need to think of the deviation. In this case, we have 3 possible outcomes for every step: -1, 0, 1
+# for round 1, the standard deviation is 0, because there is just one outcome. Hence, round 1 doesn't matter for sd
+# for round 2, the standard deviation is as follows
+
+sd.r <- sqrt((p.s[1] * v.s[1]^2 - expS.r^2) + (p.s[2] * v.s[2]^2 - expS.r^2) + (p.s[3] * v.s[3]^2 - expS.r^2))
+# this is the expected INCREMENTAL standard deviation for every  round starting round 2!
+
+expSD.rT <- function(t) {
+  SD <- 0 + (t-1) * sd.r
+  SD
+}
+
+expSD.rT(16)
+# [1] 8.660254038
 
 # 3. After T=64 steps, what is the expected value of the bee's distance from the starting hexagon?
+expD.rT(64)
+# [1] 22
 
 # 4. After T=64 steps, what is the expected value of the deviation of the bee's distance from the starting hexagon?
+expSD.rT(64)
+# 36.37306696
 
 # 5. After T=16 moves, what is the probability that the bee is at least A=8 distance away from the starting 
 # hexagon, given it is at least B=6 distance?
+
 
 # 6. After T=64 moves, what is the probability that the bee is at least A=24 distance away from the starting 
 # hexagon, given it is at least B=20 distance?
