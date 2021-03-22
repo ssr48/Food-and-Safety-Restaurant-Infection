@@ -1,6 +1,7 @@
 # Food-and-Safety-Restaurant-Infection
 
-##Introduction
+## Introduction
+
 This document provides a brief description of restaurant inspection data by the DC Department 
 of Health, the key outcome variables, and results of initial predictive analysis for those key
 outcome variables.
