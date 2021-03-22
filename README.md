@@ -28,5 +28,4 @@ The primary goals for the project are
 This repository currently only captures the data cleaning, analysis of relationship between key 
 variables, and a predictive model for violations.
 
-Please refer to a more detailed introduction and initial results here: 
-https://github.com/ssr48/Food-and-Safety-Restaurant-Infection/blob/master/Food%20Safety%20and%20Restaurant%20Inspection.pdf
+Please refer to a more detailed introduction and initial results here (https://github.com/ssr48/Food-and-Safety-Restaurant-Infection/blob/master/Food%20Safety%20and%20Restaurant%20Inspection.pdf)
