@@ -33,5 +33,5 @@ Please refer to a more detailed introduction and initial results [here](https://
 
 Below are some visualizations based on the analysis:
 
-1) Violations by Risk Categories
+## Violations by Risk and Establishment Categories
 ![image](https://user-images.githubusercontent.com/25066236/113500353-e460c900-94e2-11eb-951a-4021b1270ced.png)
