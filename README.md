@@ -38,6 +38,3 @@ Below are some visualizations based on the analysis:
 
 ## Total Violations vs Critical Violations
 ![image](https://user-images.githubusercontent.com/25066236/113500401-41f51580-94e3-11eb-99fe-16fb27876628.png)
-
-
-training efforts for business owners and staff and further help the department allocate staff
